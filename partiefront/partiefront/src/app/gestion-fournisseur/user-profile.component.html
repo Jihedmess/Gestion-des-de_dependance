@@ -1,0 +1,260 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+                  <div class="card">
+                      <div class="card-header card-header-danger">
+                          <h4 class="card-title">Edit Profile</h4>
+                          <p class="card-category">Complete your profile</p>
+                      </div>
+                      <div class="card-body">
+                          <form>
+                              <div class="row">
+                                  
+                                  <div class="col-md-6">
+                                      <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Contact" type="text" [(ngModel)]="fournisseur.contact" name="contact">
+                                      </mat-form-field>
+                                  </div>
+                                  <div class="col-md-6">
+                                      <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Adresse" type="text" [(ngModel)]="fournisseur.adresse" name = "adresse">
+                                      </mat-form-field>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Matricule" type="text" [(ngModel)]="fournisseur.matricule" name= "matricule">
+                                    </mat-form-field>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Raison sociale" type="text" [(ngModel)]="fournisseur.raison_sociale" name ="raisonsociale" >
+                                    </mat-form-field>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-6">
+                                        <div class="form-group">
+                                                Type
+                                                <select class="form-control form-control-lg" [(ngModel)]="fournisseur.type" name="type">
+                                                  
+                                                  <option value="SARL">SARL</option>
+                                                  <option value="PP">PP</option>
+                                                  <option value="SOARL">SOARL</option>
+                                                  <option value="SA">SA</option>
+                                                  
+                                                </select>
+                                              </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Telephone" type="number"  [(ngModel)]="fournisseur.telfournisseur" name="telfournisseur" ng-maxlength="5">
+                                    </mat-form-field>
+                                  </div>
+                                  
+                              </div>
+                              <div class ="row">
+                                <div class="col-md-6" style="
+                                margin-top: 22px;
+                            ">
+                                   
+                                        <label>
+                                            Actif
+                                        </label>
+                                      <input   type="checkbox"  [(ngModel)]="fournisseur.actif" name="telfournisseur" style="
+                                      margin-left: 44px;
+                                  ">
+                                    
+                                  </div>
+                                  <div class="col-md-6">
+                                        <mat-form-field class="example-full-width">
+                                          <input matInput placeholder="email" type="text"  [(ngModel)]="fournisseur.email" name="email">
+                                        </mat-form-field>
+                                      </div>
+                              </div>
+                             
+                              <button mat-raised-button  class="btn btn-danger pull-right" (click)="createFournisseur()" >Add</button>
+                              <div class="clearfix"></div>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    
+                    <p class="card-category"> Liste des fournisseurs</p>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table" *ngIf ="table">
+                            <thead class=" text-primary">
+                                <th>
+                                    ID
+                                </th>
+                                <th>
+                                    Contact
+                                </th>
+                                <th>
+                                    Adresse
+                                </th>
+                                <th>
+                                    Matricule
+                                </th>
+                                <th>
+                                    Raisoon social
+                                </th>
+                                <th>
+                                    Type
+                                </th>
+                                <th>
+                                        Actif
+                                    </th>
+                                
+                                
+                                <th>
+                                        Email
+                                    </th>
+                                    <th>
+                                            Téléphone
+                                        </th>
+                                <th>
+                                    Action
+                                </th>
+                            </thead>
+                            <tbody *ngFor = "let item of listfournisseur">
+                                <tr>
+                                    <td>
+                                        {{item.idFournisseur}}
+                                    </td>
+                                    <td>
+                                        {{item.contact}}
+                                    </td>
+                                    <td>
+                                        {{item.adresse}}
+                                    </td>
+                                    <td>
+                                        {{item.matricule}}
+                                    </td>
+                                    <td>
+                                        {{item.raison_sociale}}
+                                    </td>
+                                    <td>
+                                        {{item.type}}
+                                    </td>
+                                    <td>
+                                        {{item.actif}}
+                                    </td>
+                                    <td>
+                                            {{item.email}}
+                                        </td>
+                                    <td>
+                                        {{item.telfournisseur}}
+                                    </td>
+                                    <td class="text-primary">
+                                        <button mat-raised-button type="button" (click)="open(content,item.idFournisseur)" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                            <i class="material-icons">edit</i>
+                                        </button>
+                                        <button mat-raised-button type="button" (click)="deletefourniseeur(item.idFournisseur)" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                            <i class="material-icons">close</i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+  </div>
+</div>
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Update fournisseur</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <form>
+            <div class="row">
+                
+                <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Contact" type="text" [(ngModel)]="fournisseur.contact" name="contact">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Adresse" type="text" [(ngModel)]="fournisseur.adresse" name = "adresse">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Matricule" type="text" [(ngModel)]="fournisseur.matricule" name= "matricule">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Raison sociale" type="text" [(ngModel)]="fournisseur.raison_sociale" name ="raisonsociale" >
+                  </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                      <div class="form-group">
+                              Type
+                              <select class="form-control form-control-lg" [(ngModel)]="fournisseur.type" name="type">
+                                <option value="SARL">SARL</option>
+                                <option value="PP">PP</option>
+                                <option value="SOARL">SOARL</option>
+                                <option value="SA">SA</option>
+                                
+                              </select>
+                            </div>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Telephone" type="number"  [(ngModel)]="fournisseur.telfournisseur" name="telfournisseur">
+                  </mat-form-field>
+                </div>
+                
+            </div>
+            <div class ="row">
+              <div class="col-md-6" style="
+              margin-top: 22px;
+          ">
+                 
+                      <label>
+                          Actif
+                      </label>
+                    <input   type="checkbox"  [(ngModel)]="fournisseur.actif" name="actif" style="
+                    margin-left: 44px;
+                ">
+                  
+                </div>
+                <div class="col-md-6">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="email" type="text"  [(ngModel)]="fournisseur.email" name="email">
+                      </mat-form-field>
+                    </div>
+            </div>
+           
+           
+            <div class="clearfix"></div>
+        </form>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="updateFournisseur()">Save</button>
+    </div>
+  </ng-template>

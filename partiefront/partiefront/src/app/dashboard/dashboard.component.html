@@ -1,0 +1,160 @@
+<div class="main-content">
+    <div class="container-fluid">
+        
+        <div class="row">
+            <div class="col-md-12" >
+                <div >
+                    <div class="card-header card-header-success" >
+                            <h4 class="card-title">Répartition des Depenses</h4>
+                            <p class="card-category">
+                             <div class="row">
+                                 <div class="col-md-3">   
+                                          <div class="form-group">
+                                              <label for="exampleInputPassword1">Date from </label>
+                                              <input type="date" class="form-control" id="exampleInputPassword1" placeholder="Password" [(ngModel)]="filtre1.date1" name ="date1">
+                                          </div>
+                                 </div>
+                                 <div class="col-md-3">   
+                                      <div class="form-group">
+                                          <label for="exampleInputPassword1">Date to </label>
+                                          <input type="date" class="form-control" id="exampleInputPassword1" placeholder="Password" [(ngModel)]="filtre1.date2" name ="date2">
+                                      </div>
+                                 </div>
+                                  <div class="col-md-3">   
+                                      <div class="form-group" >
+                                        <label for="exampleInputPassword1">Filtre</label>
+                                         <select class="form-control form-control-lg" [(ngModel)]="conditionfilre1" name="condition">
+                                                      
+                                            <option value="mp">Par mode de paiement </option>
+                                            <option value="type">Par type </option>
+                                            <option value="ci">Par centre interet </option>
+                                            
+                                    </select>
+                                      </div>
+                                 </div>
+                                 <div class="col-md-3" >   
+                                      <div class="form-group"style="margin-top: 25px;">
+                                          
+                                              <button mat-raised-button (click)="filtrePartie1()" class="btn btn-danger pull-right">Filtre</button>
+                                      </div>
+                                 </div>
+                              </div> 
+                    </div>
+                    <div class="card-body">
+
+
+                       
+                          
+                          
+                        <div *ngIf ="chowchartelinefiltre1">
+                                <canvas id="canvasfiltre1pie"></canvas>
+                        </div>
+                        <div *ngIf ="chowchartebarfiltre1">
+                                <canvas id="canvasfiltre1pie"></canvas>
+                        </div>
+                        <div *ngIf ="chowchartepiefiltre1">
+                                <canvas id="canvasfiltre1pie"></canvas>
+                        </div>
+
+
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+              <div >
+
+
+
+                  <div class="card-header card-header-danger">
+
+
+                        <h4 class="card-title">Variation des dépenses par fournisseur</h4>
+                        <div class="row">
+                          <div class="col-md-4">   
+                                   <div class="form-group">
+                                       <label for="exampleInputPassword1">Date from </label>
+                                       <input type="date" class="form-control" id="exampleInputPassword1" placeholder="Password" [(ngModel)] = "filtre2.date1" name="datefrom3">
+                                   </div>
+                          </div>
+                          <div class="col-md-4">   
+                               <div class="form-group">
+                                   <label for="exampleInputPassword1">Date to </label>
+                                   <input type="date" class="form-control" id="exampleInputPassword1" placeholder="Password" [(ngModel)] = "filtre2.date2" name= "dateto3">
+                               </div>
+                          </div>
+                          <div class="col-md-4">   
+                               <div class="form-group">
+                                   
+                                       <button mat-raised-button (click)="filtrePartie2()" class="btn btn-danger pull-right">Filtre</button>
+                               </div>
+                          </div>
+                       </div>
+
+
+                    
+                  </div>
+
+                  
+                  <div class="card-body">
+                        <canvas id="canvasfiltre2"></canvas>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                        
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+      </div>
+      <div class="row">
+         
+  <div class="col-md-12">
+      <div >
+          <div class="card-header card-header-warning">
+            
+           
+                
+                <h4 class="card-title">Variation des dépenses par date</h4>
+                <div class="row">
+                  <div class="col-md-4">   
+                           <div class="form-group">
+                               <label for="exampleInputPassword1">Date from </label>
+                               <input type="date" class="form-control" id="exampleInputPassword1" placeholder="Password" [(ngModel)] = "filtre3.date1" name="datefrom3">
+                           </div>
+                  </div>
+                  <div class="col-md-4">   
+                       <div class="form-group">
+                           <label for="exampleInputPassword1">Date to </label>
+                           <input type="date" class="form-control" id="exampleInputPassword1" placeholder="Password" [(ngModel)] = "filtre3.date2" name= "dateto3">
+                       </div>
+                  </div>
+                  <div class="col-md-4">   
+                       <div class="form-group">
+                           
+                               <button mat-raised-button (click)="filtrePartie3()" class="btn btn-danger pull-right">Filtre</button>
+                       </div>
+                  </div>
+               </div> 
+           
+              
+          </div>
+          <div class="card-body">
+                <canvas id="canvasfiltre3"></canvas>
+          </div>
+          
+      </div>
+  </div>
+          
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,107 @@
+<div class="main-content">
+        <div class="container-fluid">
+              <div class="row">
+                      <div class="col-md-12">
+                              <div class="card">
+                                  <div class="card-header card-header-danger">
+                                      <h4 class="card-title">Add centre interet</h4>
+                                      <p class="card-category">Complete your centre interet</p>
+                                  </div>
+                                  <div class="card-body">
+                                      <form>
+                                         
+                                          <div class="row">
+                                              <div class="col-md-12">
+                                                <mat-form-field class="example-full-width">
+                                                  <input matInput placeholder="Designation centre interet" name ="designationCI" type="text" [(ngModel)]="centreinteret.designationCI">
+                                                </mat-form-field>
+                                              </div>
+                                              
+                                          </div>
+                                          
+                                         
+                                          <button mat-raised-button (click)="create()" class="btn btn-danger pull-right">Add</button>
+                                          <div class="clearfix"></div>
+                                      </form>
+                                  </div>
+                              </div>
+                          </div>
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header card-header-danger">
+                                
+                                <p class="card-category"> Liste centre interet</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table" *ngIf= "table">
+                                        <thead class=" text-primary">
+                                            <th>
+                                                ID
+                                            </th>
+                                            <th>
+                                                Name
+                                            </th>
+                                            
+                                            <th>
+                                                Action
+                                            </th>
+                                        </thead>
+                                        <tbody *ngFor = "let item of listCentreIntert">
+                                            <tr>
+                                                <td>
+ 
+                                                {{item.idCI}}
+                                                </td>
+                                                <td>
+                                                    {{item.designationCI}}
+                                                </td>
+                                               
+                                                <td class="text-primary">
+                                                   
+                                                        <button mat-raised-button type="button" (click)="open(content,item.idCI)" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                            <i class="material-icons">edit</i>
+                                                        </button>
+                                                        <button mat-raised-button (click)="delete(item.idCI)" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                            <i class="material-icons">close</i>
+                                                        </button>
+                                                    
+                                                </td>
+                                            </tr>
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+        </div>
+      </div>
+      <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Update centre interet</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+             
+             
+                
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Designation centre interet" name ="designationCI" type="text" [(ngModel)]="centreinteret.designationCI">
+                    </mat-form-field>
+                  
+               
+             
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="update()">Save</button>
+        </div>
+      </ng-template>

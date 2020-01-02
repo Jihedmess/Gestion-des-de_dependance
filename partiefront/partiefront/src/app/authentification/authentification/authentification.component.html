@@ -1,0 +1,25 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="../../../assets/img/logo.png" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form>
+      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login" [(ngModel)]= "login">
+      <input type="password" id="password" class="fadeIn third" name="login" placeholder="password" [(ngModel)] = "password">
+      <input type="submit" class="fadeIn fourth" value="Log In" (click)= "connecte()">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+        <div class="alert alert-danger" role="alert" *ngIf ="alert">
+            error :password or login is incorrect
+          </div>
+    </div>
+
+  </div>
+</div>
